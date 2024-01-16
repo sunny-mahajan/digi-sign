@@ -1,0 +1,255 @@
+.signatureModal * {
+  box-sizing: border-box;
+}
+.signatureModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+}
+.signatureModalContent {
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  width: 80%;
+  font-size: 16px;
+  max-height: 100vh;
+  overflow: auto;
+}
+.signatureModalTopBar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.signatureModalTabSection {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background: #e3ebf7;
+  border-top: 1px solid #bec9d9;
+  border-bottom: 1px solid #bec9d9;
+}
+.signatureCanvas {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.signatureCanvas > canvas {
+  border: 2px solid #bfbfbf;
+  border-style: dashed;
+  margin-top: 20px;
+}
+.signatureModalBottomBar {
+  display: flex;
+  padding: 30px 20px;
+  background: #f6f8fa;
+  border-top: 1px solid #bec9d9;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.signatureModalBottomBar button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #d8dfeb;
+  border-radius: 3px;
+  min-width: 80px;
+}
+button.signatureModalSecondaryButton {
+  background: #f0f3f9;
+  color: #3d424e;
+}
+button.signatureModalPrimaryButton {
+  background: #4636e3;
+  color: #fff;
+  border-color: #2b1cc1;
+}
+.signatureModalTabSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.signatureModalTabSection ul li {
+  padding: 20px 30px;
+  cursor: pointer;
+}
+.signatureModalTabSection li.active {
+  color: #4636e3;
+  border-bottom: 2px solid #4636e3;
+}
+.signatureCanvasFonts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.signatureCanvasFonts > span {
+  width: 50%;
+  text-align: left;
+  font-size: 26px;
+  padding: 20px;
+  background: #f0f3f9;
+  border: 1px solid #d8dfeb;
+  display: flex;
+  align-items: center;
+}
+.signatureCanvas input.signatureModalFontInput {
+  width: 60%;
+  border: 0;
+  border-bottom: 1px solid #848c9a;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
+  min-height: 100px;
+}
+.signatureCanvas input.signatureModalFontInput:focus {
+  outline: none;
+  border: 1px solid #2b1cc1;
+  border-bottom-color: #848c9a;
+}
+.signatureCanvasFonts span input {
+  align-items: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #d8dfeb;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 28px;
+  justify-content: space-evenly;
+  margin-right: 32px;
+  width: 28px;
+}
+.signatureColorOptions > div > input {
+  align-items: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 30px;
+  justify-content: space-evenly;
+  width: 30px;
+  margin: 0;
+}
+.signatureCanvasFonts span input:checked::after {
+  background: #4636e3;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 16px;
+  margin: 4px auto;
+  width: 16px;
+}
+.signatureColorOptions {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.signatureColorOption {
+  position: relative;
+}
+label.selectedFontColor {
+  position: absolute;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  top: -4px;
+  left: -4px;
+  border: 4px solid #fff;
+  border-radius: 100%;
+}
+.signatureColorOptions > div > input:checked ~ .selectedFontColor {
+  border-color: #4636e3;
+}
+button.typeSignClear {
+  background: transparent;
+  border: 0;
+  color: #2b1cc1;
+  margin-top: 13px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.signatureCanvasFonts > span > label {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.signatureCanvasFonts p {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.signedImageHolder {
+  width: 400px;
+  background: #ccd7ff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.signedImageHolder img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signedImageHolder button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #4636e3;
+  border: 0;
+  color: #fff;
+}
+@media only screen and (max-width: 767px) {
+  .signatureCanvas > canvas {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+  .signatureCanvasFonts > span {
+    width: 100%;
+    font-size: 20px;
+    padding: 6px;
+  }
+  .signatureCanvasFonts span input {
+    height: 20px;
+    margin-right: 10px;
+    width: 20px;
+  }
+  .signatureCanvasFonts span input:checked::after {
+    height: 12px;
+    width: 12px;
+  }
+  .signatureCanvas input.signatureModalFontInput {
+    width: 100%;
+    font-size: 28px;
+    min-height: 60px;
+  }
+  .signatureColorOptions > div > input {
+    height: 20px;
+    width: 20px;
+  }
+  button.typeSignClear {
+    font-size: 16px;
+  }
+}
